@@ -1,0 +1,45 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: #1b2230; color: #f4f1ea;
+  font: 14px/1.35 system-ui, -apple-system, 'Segoe UI', sans-serif; touch-action: none; user-select: none; -webkit-user-select: none; }
+#gfx { position: fixed; inset: 0; width: 100%; height: 100%; display: block; image-rendering: auto; }
+#hud { position: fixed; inset: 0; pointer-events: none; }
+#hud button, #hud select, .card { pointer-events: auto; }
+.card { background: rgba(20, 24, 34, 0.62); backdrop-filter: blur(6px); border-radius: 12px; padding: 10px 12px; }
+#panel { position: absolute; left: 12px; top: 12px; width: min(250px, 46vw); }
+#panel .row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+#panel b { font-size: 17px; }
+#panel small { opacity: 0.7; }
+.hpbar { height: 7px; background: #0006; border-radius: 4px; margin: 6px 0 2px; overflow: hidden; }
+.hpbar i { display: block; height: 100%; background: linear-gradient(90deg, #e2584d, #f2b84b); transition: width .2s; }
+#abilities { margin-top: 6px; display: grid; gap: 3px; }
+.ab { display: grid; grid-template-columns: 74px 1fr; align-items: center; column-gap: 6px; font-size: 12px; }
+.ab .bar { height: 5px; background: #0006; border-radius: 3px; overflow: hidden; }
+.ab .bar i { display: block; height: 100%; background: #7fd1c7; }
+.ab em { grid-column: 2; font-style: normal; opacity: 0.6; font-size: 11px; }
+#menu { position: absolute; right: 12px; top: 12px; display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; max-width: 52vw; }
+button, select { background: #ffffff1c; color: inherit; border: 1px solid #ffffff2a; border-radius: 8px; padding: 6px 10px; font: inherit; cursor: pointer; }
+button:active { background: #ffffff38; }
+button[disabled] { opacity: 0.35; }
+select option { color: #000; }
+#stats { position: absolute; right: 12px; bottom: 8px; font-size: 11px; opacity: 0.7; text-shadow: 0 1px 2px #000; }
+#log { position: absolute; left: 12px; bottom: 30px; font-size: 13px; text-shadow: 0 1px 3px #000; }
+#help { position: absolute; left: 12px; bottom: 8px; font-size: 11px; opacity: 0.65; text-shadow: 0 1px 2px #000; }
+#touch-buttons { position: absolute; right: 14px; bottom: 30px; display: flex; gap: 10px; }
+#touch-buttons button { pointer-events: auto; min-width: 58px; height: 58px; border-radius: 29px; font-size: 18px; background: #ffffff26; }
+#stick { position: absolute; width: 100px; height: 100px; border-radius: 50%; border: 2px solid #fff5; display: none; }
+#knob { position: absolute; left: 30px; top: 30px; width: 40px; height: 40px; border-radius: 50%; background: #fff7; }
+#labels div { position: absolute; transform: translate(-50%, -100%); font-size: 12px; padding: 2px 6px; border-radius: 6px;
+  background: #0008; white-space: nowrap; }
+#error { position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; background: #1b2230; pointer-events: auto; font-size: 16px; }
+body.mode-gallery #panel, body.mode-gallery #touch-buttons, body.mode-gallery #help,
+body.mode-test #panel, body.mode-test #touch-buttons, body.mode-test #help, body.mode-test #btn-mutate { display: none; }
+body.frozen #hud { display: none; }
+@media (hover: hover) and (pointer: fine) { #touch-buttons { display: none; } }
+@media (max-width: 600px) {
+  #help, #debug-select, .ab em { display: none; }
+  #panel { width: 44vw; font-size: 12px; padding: 8px 10px; }
+  .ab { grid-template-columns: 62px 1fr; }
+  #menu { max-width: 44vw; padding: 6px; gap: 4px; }
+  #menu button, #menu select { padding: 5px 7px; font-size: 12px; }
+}
+#error[hidden] { display: none; }

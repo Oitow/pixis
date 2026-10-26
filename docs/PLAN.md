@@ -12,7 +12,7 @@ daraus Animation, Fähigkeiten und Verhalten. Nichts ist ein vorgefertigtes Mesh
 3. *Weich und organisch:* Smooth-Unions statt harter Kanten – das ist der Look von Pixis.
 4. *Immer sichtbar:* Jeder Fortschritt ist im Browser anschaubar (auch am Handy).
 
-## 2. Tech-Stack (Vorschlag – Entscheidung offen)
+## 2. Tech-Stack (umgesetzt: TypeScript + WebGPU)
 
 | Bereich | Vorschlag | Warum |
 |---|---|---|
@@ -55,6 +55,19 @@ damit jeder Pixel nur die Primitive auswertet, die ihn betreffen.
 **Datenformate:** Genome und Baupläne sind JSON-serialisierbar → teilbar, versionierbar, testbar.
 
 ## 4. Meilensteine
+
+### Stand (Oktober 2026)
+
+| | Status | Was es gibt | Offen |
+|---|---|---|---|
+| M0 | ✅ | Vite/TS/WebGPU, Seeded RNG, Mathe, CI (Lint, Typecheck, Vitest, Golden Images), Pages-Deploy | – |
+| M1 | ✅ | Raymarcher, Ellipsoid + Round-Cone, `smin`, Soft-Shadows, AO, Rim, Fake-SSS, Orbit-Kamera, 4 Debug-Ansichten, Testkreatur | mehr Primitive (Torus, Box) |
+| M2 | ✅ | Genom v1 (32 Gene), Mutation, Kreuzung, Validierung, Namen, Bauplan, Galerie | Genom-Schema-Migration ab v2 |
+| M3 | ✅ | Follow-the-Leader-Wirbelsäule, diagonaler Gang, 2-Knochen-IK, Schwimmwelle, Flügelschlag, Feder-Antennen, Atmen, Blinzeln, Kiefer | echte Knochen-Hierarchie für Kopf/Hals, Gangarten nach Beinzahl |
+| M4 | 🟡 | Compute-Tile-Culling (Bitmaske pro 16×16-Tile), Bounding-Sphere-Skip, dynamische Auflösung, CPU-Budget-Test | GPU-Benchmark in CI (nur Software-GPU dort), Horizont-Kosten des Terrains senken |
+| M5 | 🟡 | Muster (Streifen, Flecken, Schuppen, Bauch), Augen mit Iris/Pupille, Hörner, Stacheln, Leuchtorgane, Wasser | Haut-Displacement, Zähne, Augenlider |
+| M6 | ✅ | Fähigkeiten aus dem Körper (Laufen/Schlängeln, Springen, Schwimmen, Gleiten/Fliegen, Beißen, Panzer, Leuchten, Sicht), Steuerung (Tastatur + Touch), NPC-KI (wandern, fliehen, jagen), Schaden/Ohnmacht/Respawn | Balancing, Fressen/Energie, Sound |
+
 
 Jeder Meilenstein endet mit etwas, das man **sieht**, und einer Demo-Seite.
 
@@ -122,7 +135,7 @@ Jeder Meilenstein endet mit etwas, das man **sieht**, und einer Demo-Seite.
 | Scope-Explosion | strikte Meilensteine, jede Idee zuerst als Issue im Backlog |
 
 ## 6. Offene Entscheidungen
-- [ ] Stack bestätigen: TS + WebGPU oder Rust + wgpu?
+- [x] Stack: TS + WebGPU (Rust/WASM später für heiße Pfade möglich)
 - [ ] Zielplattform: nur Browser oder auch Desktop-App?
 - [ ] Spielkern: Sandbox, Ökosystem-Sim oder Abenteuer mit eigener Kreatur?
 - [ ] Art-Direction: verspielt/knuffig oder fremdartig/Tiefsee?

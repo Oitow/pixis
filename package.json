@@ -1,0 +1,28 @@
+{
+  "name": "pixis",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:visual": "vite build && node tests/visual/run.mjs",
+    "test:visual:update": "vite build && node tests/visual/run.mjs --update"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@webgpu/types": "^0.1.74",
+    "eslint": "^9.39.5",
+    "pixelmatch": "^8.0.0",
+    "playwright": "^1.63.0",
+    "pngjs": "^7.0.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.72.1",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}

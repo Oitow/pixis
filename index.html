@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Pixis</title>
+<link rel="stylesheet" href="./src/ui/style.css" />
+</head>
+<body>
+<canvas id="gfx"></canvas>
+<div id="hud">
+  <div id="panel" class="card">
+    <div class="row"><b id="c-name">…</b><small id="c-seed"></small></div>
+    <div class="hpbar"><i id="hp"></i></div>
+    <small id="c-mode"></small>
+    <div id="abilities"></div>
+  </div>
+  <div id="menu" class="card">
+    <select id="mode-select" aria-label="Modus">
+      <option value="game">Spiel</option>
+      <option value="gallery">Galerie</option>
+      <option value="test">Testkreatur</option>
+    </select>
+    <select id="debug-select" aria-label="Debug">
+      <option value="0">Normal</option>
+      <option value="1">Schritte</option>
+      <option value="2">Normalen</option>
+      <option value="3">Gruppen-IDs</option>
+      <option value="4">Tile-Culling</option>
+    </select>
+    <button id="btn-new">🎲 Neu</button>
+    <button id="btn-mutate">🧬 Mutieren</button>
+    <button id="btn-share">🔗 Teilen</button>
+  </div>
+  <div id="stats"></div>
+  <div id="log"></div>
+  <div id="help">WASD laufen · Leertaste springen/fliegen · E beißen · G leuchten · Maus ziehen = Kamera</div>
+  <div id="touch-buttons">
+    <button id="btn-glow">✨</button>
+    <button id="btn-bite">🦷</button>
+    <button id="btn-jump">⤴ Sprung</button>
+  </div>
+  <div id="stick"><div id="knob"></div></div>
+  <div id="labels"></div>
+  <div id="error" hidden></div>
+</div>
+<script type="module" src="./src/main.ts"></script>
+</body>
+</html>
